@@ -1,12 +1,11 @@
 ﻿namespace UmbralCompiler
 {
     using CodeAnalysis;
-
-    internal class UmbralCompiler
+    internal static class UmbralCompiler
     {
         private static void Main()
         {
-            bool showTree = false;
+            var showTree = false;
 
             while (true)
             {
@@ -24,13 +23,11 @@
                 }
 
                 var syntaxTree = SyntaxTree.Parse(line);
-                var color = Console.ForegroundColor;
-
                 if (showTree)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkGray;
                     PrettyPrint(syntaxTree.Root);
-                    Console.ForegroundColor = color;
+                    Console.ResetColor();
                 }
 
                 if (!syntaxTree.Diagnostics.Any())
@@ -46,7 +43,7 @@
                     foreach (var diagnostic in syntaxTree.Diagnostics)
                         Console.WriteLine(diagnostic);
 
-                    Console.ForegroundColor = color;
+                    Console.ResetColor();
                 }
             }
         }
@@ -67,7 +64,7 @@
 
             Console.WriteLine();
 
-            indent += isLast ? "     " : "│   ";
+            indent += isLast ? "  " : "│  ";
 
             var lastChild = node.GetChildren().LastOrDefault();
 

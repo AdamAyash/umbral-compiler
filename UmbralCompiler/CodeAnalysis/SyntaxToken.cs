@@ -1,6 +1,6 @@
 ﻿namespace UmbralCompiler.CodeAnalysis
 {
-    internal class SyntaxToken : SyntaxNode
+    public class SyntaxToken : SyntaxNode
     {
         public SyntaxToken(SyntaxKind kind, int position, string text, object value)
         {

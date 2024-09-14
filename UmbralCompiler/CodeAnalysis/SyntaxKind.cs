@@ -1,17 +1,19 @@
 ﻿namespace UmbralCompiler.CodeAnalysis
 {
-    enum SyntaxKind
+    public enum SyntaxKind
     {
-        NumberToken,
+        BadToken,
+        EndOfFileToken,
         WhiteSpaceToken,
+        NumberToken,
         PlusToken,
         MinusToken,
         StarToken,
         SlashToken,
         OpenParanthesisToken,
         CloseParanthesisToken,
-        BadToken,
-        EndOfFileToken,
+        
+        //Expressions
         NumberExpression,
         BinaryExpression,
         ParenthesizedExpression
